@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CM-EVS per-step selection log",
+  "type": "object",
+  "required": ["step", "candidate_id", "score", "marginal_gain", "coverage_after"],
+  "properties": {
+    "step": {"type": "integer"},
+    "candidate_id": {"type": "string"},
+    "score": {"type": "number"},
+    "marginal_gain": {"type": "number"},
+    "coverage_after": {"type": "number"},
+    "conflict_prior": {"type": "number"}
+  }
+}
+

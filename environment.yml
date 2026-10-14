@@ -1,0 +1,25 @@
+name: cmevs
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  - numpy>=1.24
+  - scipy
+  - pandas
+  - pyyaml
+  - pillow
+  - matplotlib
+  - scikit-learn
+  - pytorch
+  - torchvision
+  - cudatoolkit
+  - pip:
+      - opencv-python
+      - open3d
+      - trimesh
+      - tqdm
+      - jsonschema
+

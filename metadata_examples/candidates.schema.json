@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CM-EVS candidate metadata",
+  "type": "object",
+  "required": [
+    "candidate_id",
+    "source",
+    "scene_id",
+    "position",
+    "valid",
+    "single_view_probe_coverage",
+    "conflict_prior",
+    "covered_cells"
+  ],
+  "properties": {
+    "candidate_id": {"type": "string"},
+    "source": {"type": "string"},
+    "scene_id": {"type": "string"},
+    "position": {
+      "type": "array",
+      "items": {"type": "number"},
+      "minItems": 3,
+      "maxItems": 3
+    },
+    "yaw_deg": {"type": "number"},
+    "valid": {"type": "boolean"},
+    "rejection_layer": {"type": "string"},
+    "single_view_probe_coverage": {"type": "number"},
+    "conflict_prior": {"type": "number"},
+    "covered_cells": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "oracle_gain": {"type": "number"},
+    "runtime_s": {"type": "number"}
+  }
+}
+

@@ -1,0 +1,31 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+.env
+.venv/
+venv/
+*.egg-info/
+
+# Local data, generated outputs, and large third-party artifacts.
+data/*
+!data/README.md
+outputs/
+logs/
+checkpoints/
+third_party/*
+!third_party/README.md
+*.blend
+*.glb
+*.gltf
+*.ply
+*.obj
+*.fbx
+*.exr
+*.npy
+*.npz
+*.pt
+*.pth
+*.ckpt
+
+# Keep checked-in result templates, but ignore local regenerated variants.
+results/*.local.csv

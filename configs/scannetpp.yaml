@@ -1,0 +1,17 @@
+experiment:
+  source: scannetpp
+  input_kind: ply
+
+pipeline:
+  input_dir: data/scannetpp
+  output_root: outputs/scannetpp
+  num_frames: 30
+  resolution: "2048,1024"
+  grid_spacing: 0.5
+  point_size: 2.0
+  z_up: true
+  min_frames: 5
+  stop_gain: 0.08
+  stop_score: -0.3
+  stop_delta: 0.08
+

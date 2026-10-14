@@ -1,0 +1,17 @@
+experiment:
+  source: blender_indoor
+  input_kind: blend
+
+pipeline:
+  blender: /path/to/blender
+  input_dir: data/blender_indoor
+  output_root: outputs/blender_indoor
+  num_frames: 30
+  resolution: "2048,1024"
+  grid_spacing: 0.5
+  camera_height: null
+  min_frames: 5
+  stop_gain: 0.08
+  stop_score: -0.3
+  stop_delta: 0.08
+

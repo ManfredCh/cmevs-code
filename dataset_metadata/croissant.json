@@ -1,0 +1,414 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "citeAs": "cr:citeAs",
+    "column": "cr:column",
+    "conformsTo": "dct:conformsTo",
+    "cr": "http://mlcommons.org/croissant/",
+    "rai": "http://mlcommons.org/croissant/RAI/",
+    "data": {
+      "@id": "cr:data",
+      "@type": "@json"
+    },
+    "dataType": {
+      "@id": "cr:dataType",
+      "@type": "@vocab"
+    },
+    "dct": "http://purl.org/dc/terms/",
+    "examples": {
+      "@id": "cr:examples",
+      "@type": "@json"
+    },
+    "extract": "cr:extract",
+    "field": "cr:field",
+    "fileProperty": "cr:fileProperty",
+    "fileObject": "cr:fileObject",
+    "fileSet": "cr:fileSet",
+    "format": "cr:format",
+    "includes": "cr:includes",
+    "isLiveDataset": "cr:isLiveDataset",
+    "jsonPath": "cr:jsonPath",
+    "key": "cr:key",
+    "md5": "cr:md5",
+    "parentField": "cr:parentField",
+    "path": "cr:path",
+    "recordSet": "cr:recordSet",
+    "references": "cr:references",
+    "regex": "cr:regex",
+    "repeated": "cr:repeated",
+    "replace": "cr:replace",
+    "samplingRate": "cr:samplingRate",
+    "sc": "https://schema.org/",
+    "separator": "cr:separator",
+    "source": "cr:source",
+    "subField": "cr:subField",
+    "transform": "cr:transform"
+  },
+  "@type": "sc:Dataset",
+  "conformsTo": "http://mlcommons.org/croissant/1.0",
+  "name": "CM-EVS",
+  "description": "CM-EVS is a curated panoramic RGB-D dataset built under a single principle: maximize the geometric coverage of a 3D scene with the fewest equirectangular (ERP) frames possible. The headline release contains 11,583 ERP RGB-depth-pose frames over 326 Blender indoor scenes (CC-BY 4.0), each paired with the per-step provenance log of the depth-conflict-aware curator that selected it. The full v1.0 release additionally provides 786,344 frames re-encoded from TartanGround (783,944 frames over 63 environments) and OB3D (2,400 frames over 12 scenes) outdoor sources into the same ERP and world-to-camera pose schema, plus license-aware adapter packages for HM3D (14,475 frames over 401 rooms after local regeneration) and ScanNet++ (8,267 frames over 500 scans after local regeneration) that produce matched frames locally without redistributing licensed assets.",
+  "version": "1.0.0",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "url": "https://huggingface.co/datasets/anon-cmevs-2026/cmevs-erp-eval",
+  "citeAs": "@inproceedings{cmevs2026, title={{CM-EVS}: A Coverage-Curated Panoramic {RGB-D} Dataset for Indoor Scene Understanding}, author={Anonymous Author(s)}, booktitle={NeurIPS 2026 Datasets and Benchmarks Track (under review)}, year={2026}}",
+  "creator": {
+    "@type": "Organization",
+    "name": "Anonymous (double-blind submission)"
+  },
+  "datePublished": "2026-05-01",
+  "keywords": [
+    "panoramic",
+    "equirectangular",
+    "ERP",
+    "RGB-D",
+    "view planning",
+    "fixed-budget",
+    "data-centric",
+    "viewpoint provenance",
+    "indoor scene understanding",
+    "panoramic depth estimation",
+    "novel view synthesis",
+    "world model pretraining"
+  ],
+  "isLiveDataset": false,
+  "distribution": [
+    {
+      "@type": "cr:FileObject",
+      "@id": "blender-indoor-archive.tar",
+      "name": "blender-indoor-archive.tar",
+      "contentUrl": "https://huggingface.co/datasets/anon-cmevs-2026/cmevs-erp-eval/resolve/main/blender_indoor.tar",
+      "encodingFormat": "application/x-tar",
+      "sha256": "TODO_SHA256"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "blender-indoor-rgb",
+      "name": "blender-indoor-rgb",
+      "containedIn": {
+        "@id": "blender-indoor-archive.tar"
+      },
+      "encodingFormat": "image/png",
+      "includes": "rgb/*.png"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "blender-indoor-depth",
+      "name": "blender-indoor-depth",
+      "containedIn": {
+        "@id": "blender-indoor-archive.tar"
+      },
+      "encodingFormat": "application/octet-stream",
+      "includes": "depth/*.npy"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "blender-indoor-pose",
+      "name": "blender-indoor-pose",
+      "containedIn": {
+        "@id": "blender-indoor-archive.tar"
+      },
+      "encodingFormat": "application/json",
+      "includes": "pose/*.json"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "blender-indoor-metadata",
+      "name": "blender-indoor-metadata",
+      "containedIn": {
+        "@id": "blender-indoor-archive.tar"
+      },
+      "encodingFormat": "application/json",
+      "includes": "metadata/*.json*"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "outdoor-tartanground-adapter.tar",
+      "name": "outdoor-tartanground-adapter.tar",
+      "contentUrl": "https://huggingface.co/datasets/anon-cmevs-2026/cmevs-erp-eval/resolve/main/outdoor_tartanground_adapter.tar",
+      "encodingFormat": "application/x-tar",
+      "sha256": "TODO_SHA256"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "outdoor-ob3d-adapter.tar",
+      "name": "outdoor-ob3d-adapter.tar",
+      "contentUrl": "https://huggingface.co/datasets/anon-cmevs-2026/cmevs-erp-eval/resolve/main/outdoor_ob3d_adapter.tar",
+      "encodingFormat": "application/x-tar",
+      "sha256": "TODO_SHA256"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "hm3d-adapter.tar",
+      "name": "hm3d-adapter.tar",
+      "contentUrl": "https://huggingface.co/datasets/anon-cmevs-2026/cmevs-erp-eval/resolve/main/hm3d_adapter.tar",
+      "encodingFormat": "application/x-tar",
+      "sha256": "TODO_SHA256"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "scannetpp-adapter.tar",
+      "name": "scannetpp-adapter.tar",
+      "contentUrl": "https://huggingface.co/datasets/anon-cmevs-2026/cmevs-erp-eval/resolve/main/scannetpp_adapter.tar",
+      "encodingFormat": "application/x-tar",
+      "sha256": "TODO_SHA256"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "curator-source-code.tar",
+      "name": "curator-source-code.tar",
+      "contentUrl": "https://huggingface.co/datasets/anon-cmevs-2026/cmevs-erp-eval/resolve/main/code.tar",
+      "encodingFormat": "application/x-tar",
+      "sha256": "TODO_SHA256"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "documentation.tar",
+      "name": "documentation.tar",
+      "contentUrl": "https://huggingface.co/datasets/anon-cmevs-2026/cmevs-erp-eval/resolve/main/docs.tar",
+      "encodingFormat": "application/x-tar",
+      "sha256": "TODO_SHA256"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "frame-manifest.csv",
+      "name": "frame-manifest.csv",
+      "contentUrl": "https://huggingface.co/datasets/anon-cmevs-2026/cmevs-erp-eval/resolve/main/frame_manifest.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "TODO_SHA256"
+    }
+  ],
+  "recordSet": [
+    {
+      "@type": "cr:RecordSet",
+      "@id": "erp-frame-records",
+      "name": "erp-frame-records",
+      "description": "One record per released ERP frame. Curator-only fields (viewpoint_score, coverage_gain, conflict_ratio, candidate_id) are populated only for frames produced by the depth-conflict-aware curator; outdoor re-encoded frames carry the schema fields without per-step provenance.",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "erp-frame-records/frame_id",
+          "name": "frame_id",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "frame-manifest.csv"
+            },
+            "extract": {
+              "column": "frame_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "erp-frame-records/source",
+          "name": "source",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "frame-manifest.csv"
+            },
+            "extract": {
+              "column": "source"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "erp-frame-records/scene_id",
+          "name": "scene_id",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "frame-manifest.csv"
+            },
+            "extract": {
+              "column": "scene_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "erp-frame-records/room_id",
+          "name": "room_id",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "frame-manifest.csv"
+            },
+            "extract": {
+              "column": "room_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "erp-frame-records/split",
+          "name": "split",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "frame-manifest.csv"
+            },
+            "extract": {
+              "column": "split"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "erp-frame-records/rgb",
+          "name": "rgb",
+          "dataType": "sc:ImageObject",
+          "source": {
+            "fileObject": {
+              "@id": "frame-manifest.csv"
+            },
+            "extract": {
+              "column": "rgb_path"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "erp-frame-records/depth",
+          "name": "depth",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "frame-manifest.csv"
+            },
+            "extract": {
+              "column": "depth_path"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "erp-frame-records/pose_quaternion",
+          "name": "pose_quaternion",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "frame-manifest.csv"
+            },
+            "extract": {
+              "column": "pose_quaternion"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "erp-frame-records/pose_position",
+          "name": "pose_position",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "frame-manifest.csv"
+            },
+            "extract": {
+              "column": "pose_position"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "erp-frame-records/camera_type",
+          "name": "camera_type",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "frame-manifest.csv"
+            },
+            "extract": {
+              "column": "camera_type"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "erp-frame-records/viewpoint_score",
+          "name": "viewpoint_score",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "frame-manifest.csv"
+            },
+            "extract": {
+              "column": "viewpoint_score"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "erp-frame-records/coverage_gain",
+          "name": "coverage_gain",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "frame-manifest.csv"
+            },
+            "extract": {
+              "column": "coverage_gain"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "erp-frame-records/conflict_ratio",
+          "name": "conflict_ratio",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "frame-manifest.csv"
+            },
+            "extract": {
+              "column": "conflict_ratio"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "erp-frame-records/candidate_id",
+          "name": "candidate_id",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "frame-manifest.csv"
+            },
+            "extract": {
+              "column": "candidate_id"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "rai:dataCollection": "Indoor data is produced by the CM-EVS pipeline (asset loading, coordinate normalization, candidate generation, 26-direction geometric-validity filtering, conflict-aware greedy selection, 2048x1024 high-resolution Cycles ERP rendering, export under the unified schema). Outdoor data is sourced from TartanGround and OB3D and re-encoded into the unified schema; the curator is not run on outdoor sources in v1.0. HM3D and ScanNet++ frames are not redistributed; the release ships adapter regeneration scripts.",
+  "rai:dataPreprocessingProtocol": "Coordinate normalization to a right-handed +X-right, +Y-up, +Z-forward world frame with the OpenCV-style camera frame; pose stored as a scalar-first world-to-camera quaternion plus a position relative to the scene's first selected frame. AABB computation; source-specific candidate generation; 26-direction geometric-validity filter. Cubemap-to-ERP re-encoding at native resolution for outdoor sources; optional exposure adjustment for Blender; output schema conversion. Candidate probes, intermediate caches, pre-render-all oracle frames, and locally regenerated HM3D / ScanNet++ outputs are excluded from the public frame count F_pub.",
+  "rai:dataAnnotationProtocol": "No human annotation is performed. All labels (split, source, scene id, viewpoint score, coverage gain, conflict ratio) are produced automatically by the curator pipeline and recorded in metadata/per_step_log.jsonl and metadata/selected_viewpoints.json.",
+  "rai:dataReleaseMaintenancePlan": "Versioned releases on a 6-month cadence. Errata tracked via the project repository; SHA256 manifests refreshed at every release; HM3D and ScanNet++ regeneration scripts updated when upstream APIs, file layouts, or access terms change.",
+  "rai:dataUseCases": [
+    "Panoramic depth estimation",
+    "ERP novel-view synthesis",
+    "Panoramic Gaussian-splatting reconstruction",
+    "Panoramic world-model pretraining",
+    "Fixed-budget viewpoint policy evaluation"
+  ],
+  "rai:dataLimitations": [
+    "Real-scan derived frames (HM3D, ScanNet++) are not redistributed; users must accept upstream license terms and regenerate locally.",
+    "Outdoor frames are re-encoded source trajectories rather than curator-selected subsets and therefore do not carry per-step provenance.",
+    "Synthetic-real transfer must be validated separately by source; we do not claim Blender-only gains imply real-scan gains.",
+    "Geometry-validity filters may fail in atria, semi-outdoor spaces, narrow transitions, noisy scans, or pure point-cloud scenes."
+  ],
+  "rai:personalSensitiveInformation": "No new personal data is collected. Real-scan sources (HM3D, ScanNet++) may depict private indoor layouts and are not redistributed as derived frames. Even regeneration scripts and viewpoint metadata can reveal where observations would be sampled within a private space; users must comply with upstream source access terms.",
+  "rai:dataBiases": [
+    "Source assets inherit geographic, architectural, and scanning biases.",
+    "HM3D and ScanNet++ are skewed toward scanned residential indoor spaces.",
+    "Blender assets are skewed toward staged residential, office, and architectural scenes.",
+    "Outdoor sources (TartanGround, OB3D) are skewed toward simulator-generated terrain along circular trajectories.",
+    "Synthetic Blender materials may not match real-scan sensor noise."
+  ],
+  "rai:dataSocialImpact": "CM-EVS lowers the engineering cost of producing auditable panoramic RGB-D resources from existing 3D scenes. Positive uses include panoramic perception, data-centric evaluation, view-planning research, and 3D-consistent world-model pretraining. Potential harms include over-trusting synthetic data, obscuring upstream dataset bias, and using real indoor scans in privacy-sensitive settings. The release therefore separates public synthetic frames from licensed real-scan regeneration and documents intended uses, non-uses, and source licenses."
+}

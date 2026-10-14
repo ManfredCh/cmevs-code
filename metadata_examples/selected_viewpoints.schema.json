@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CM-EVS selected viewpoints",
+  "type": "object",
+  "required": ["scene_id", "method", "selected_viewpoints", "summary"],
+  "properties": {
+    "scene_id": {"type": "string"},
+    "method": {"type": "string"},
+    "selected_viewpoints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["candidate_id", "rank", "position", "yaw_deg"],
+        "properties": {
+          "candidate_id": {"type": "string"},
+          "rank": {"type": "integer"},
+          "position": {
+            "type": "array",
+            "items": {"type": "number"},
+            "minItems": 3,
+            "maxItems": 3
+          },
+          "yaw_deg": {"type": "number"},
+          "score": {"type": "number"},
+          "marginal_gain": {"type": "number"}
+        }
+      }
+    },
+    "summary": {"type": "object"}
+  }
+}
+

@@ -1,0 +1,15 @@
+experiment:
+  name: blender_indoor_tiny_smoke_test
+  mode: blender_indoor_tiny
+  random_seed: 2026
+
+selection:
+  budget: 4
+  lambda_conflict: 0.35
+  min_gain: 0.01
+
+outputs:
+  root: outputs/tiny
+  metadata_dir: outputs/tiny/metadata
+  render_dir: outputs/tiny/renders
+  result_dir: outputs/tiny/results

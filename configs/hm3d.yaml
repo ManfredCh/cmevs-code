@@ -1,0 +1,17 @@
+experiment:
+  source: hm3d
+  input_kind: glb
+
+pipeline:
+  blender: /path/to/blender
+  input_dir: data/hm3d
+  output_root: outputs/hm3d
+  num_frames: 30
+  resolution: "2048,1024"
+  grid_spacing: 0.5
+  camera_height: null
+  min_frames: 5
+  stop_gain: 0.08
+  stop_score: -0.3
+  stop_delta: 0.08
+

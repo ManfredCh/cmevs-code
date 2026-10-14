@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the associated anonymous NeurIPS submission during review and the camera-ready paper after publication."
+title: "CM-EVS: Conflict-Minimized Efficient View Selection for Scalable 3D Scene Data Acquisition"
+authors:
+  - family-names: "Anonymous"
+    given-names: "Authors"
+date-released: 2026-04-27
+license: MIT
+
