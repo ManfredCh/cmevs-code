@@ -1,3 +1,20 @@
+---
+license: mit
+language:
+  - en
+tags:
+  - code
+  - evaluation
+  - computer-vision
+  - robotics
+  - 3d
+  - view-selection
+  - equirectangular
+  - panorama
+library_name: pytorch
+datasets:
+  - ManfredC/cmevs-erp-eval
+---
 # CM-EVS Anonymous Code Release
 
 This repository contains the anonymous code release for **CM-EVS: Conflict-Minimized Efficient View Selection for Scalable 3D Scene Data Acquisition**.
